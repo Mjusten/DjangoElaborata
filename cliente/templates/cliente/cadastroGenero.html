@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title> Cadastro Genero </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+        <!--<link href="(Inserir link bootstrap direto da internet)"> -->
+
+    </head> 
+    <body>
+        <header class="p-0 d-flex navbar-expand navbar-dark">
+            <div class="container-fluid navbar-nav-scroll p-3 mb-2 bg-dark text-white">
+                <ul class="navbar-nav bd-navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/cliente" >Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'cliente:cadastroGenero' %}">Cadastro Gênero</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'cliente:buscaGenero' %}">Busca Gênero</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cliente:cadastroCliente' %}">Cadastro Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cliente:buscaCliente' %}">Busca Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/estoque">Estoque</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div>
+            {% if sucesso %}
+                <div class="m-3">
+                {{ sucesso }}
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cliente">Voltar</a>
+                </li>
+            {% endif %}
+            
+            {% if form %}
+            <div class="m-3">
+                <form action="{% url 'cliente:cadastroGenero' %}" method="POST">
+                    {{ form }}
+
+                    <input type="submit" value ="Vai" />
+
+                </form>
+                {% endif %}
+            </div>
+        </div>
+
+    </body>
+</html>

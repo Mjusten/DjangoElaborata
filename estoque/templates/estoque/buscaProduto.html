@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title> Busca </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
+    </head> 
+    <body>
+        <header class="p-0 d-flex navbar-expand navbar-dark">
+            <div class="container-fluid navbar-nav-scroll p-3 mb-2 bg-dark text-white">
+                <ul class="navbar-nav bd-navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/estoque" >Estoque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'estoque:cadastroCategoria' %}">Cadastro Categoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'estoque:buscaCategoria' %}">Busca Categoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'estoque:cadastroProduto' %}">Cadastro Produto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'estoque:buscaProduto' %}">Busca Produto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cliente">Cliente</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div>
+        {% if produtos %}
+            <table class="row d-flex justify-content-center">
+                <tr>
+                    <td class="text-white bg-secondary p-4"> Nome </td>
+                    <td class="text-white bg-secondary p-4"> Descrição </td>
+                    <td class="text-white bg-secondary p-4"> Descrição Abreviada </td>
+                    <td class="text-white bg-secondary p-4"> Código de Barras </td>
+                    <td class="text-white bg-secondary p-4"> Quantidade </td>
+                    <td class="text-white bg-secondary p-4"> Posição </td>
+                    <td class="text-white bg-secondary p-4"> Categoria </td>
+                </tr>
+                    {% for produto in produtos %}
+                        <tr>
+                            <td class="text-dark p-4">{{ produto.nome }}</td> 
+                            <td class="text-dark p-4">{{ produto.descricao }}</td>
+                            <td class="text-dark p-4">{{ produto.descricao_abreviada }}</td>
+                            <td class="text-dark p-4">{{ produto.codigo_barras }}</td>
+                            <td class="text-dark p-4">{{ produto.quantidade }}</td>
+                            <td class="text-dark p-4">{{ produto.posicao }}</td>
+                            <td class="text-dark p-4">{{ produto.fk_categoria }}</td>                          
+                        </tr>
+                    {% endfor %}
+            </table>
+        {% endif %}  
+        </div>
+    </body>
+</html>

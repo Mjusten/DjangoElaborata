@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title> Meu Sistema  </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+        <!--<link href="(Inserir link bootstrap direto da internet)"> -->
+
+    </head> 
+    <body>
+        <header class="p-0 d-flex navbar-expand navbar-dark">
+            <div class="container-fluid navbar-nav-scroll p-3 mb-2 bg-dark text-white">
+                <ul class="navbar-nav bd-navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/estoque" >Estoque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'estoque:cadastroCategoria' %}">Cadastro Categoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{% url 'estoque:buscaCategoria' %}">Busca Categoria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'estoque:cadastroProduto' %}">Cadastro Produto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'estoque:buscaProduto' %}">Busca Produto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cliente">Cliente</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+                
+            <h1 class="p-3">Página Inicial do Estoque</h1>
+            
+            <p class="p-3 text-dark "> Nesta página inicial ficam os links para o cadastro e a consulta dos produtos e das categorias dos produtos:</p>
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-4 ">
+                    <ul>
+                        <!-- caminho absoluto -->
+                        <!-- <li><a href="/cliente/cadastro/">Cadastro</a></li> -->
+                        <!-- caminho relativo -->
+                        <!-- <li><a href="cadastro/">Cadastro</a></li> -->
+                        <!-- forma ideal, utilizando a Linguagem de Template Django-->
+                        <li><a href="{% url 'estoque:cadastroCategoria' %}">Cadastro Categoria</a></li>
+                        <li><a href="{% url 'estoque:buscaCategoria' %}">Busca Categoria</a></li>
+                        <li><a href="{% url 'estoque:cadastroProduto' %}">Cadastro Produto</a></li>
+                        <li><a href="{% url 'estoque:buscaProduto' %}">Busca Produto</a></li>
+                    </ul>
+                </div>
+            </div>
+    </body>
+</html>
+
+
+
+</html>
